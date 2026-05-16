@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Séraphine Voyance</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Raleway:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #B8860B; --gold-bright: #D4A017; --gold-shine: #E8C44A;
+    --gold-pale: #FAF0C0; --gold-border: #C9A030; --gold-light: #F0D070;
+    --cream: #FAF7F0; --ivory: #F3EDD8; --white: #fff;
+    --text-dark: #1E1610; --text-mid: #3D2E1A; --text-soft: #6B5230;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Raleway', sans-serif; background: var(--cream); color: var(--text-dark); line-height: 1.8; font-size: 15px; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,240,0.97); border-bottom: 2px solid var(--gold-border); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 600; color: var(--text-dark); text-decoration: none; }
+  .nav-logo span { color: var(--gold); font-style: italic; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-mid); text-decoration: none; font-weight: 600; transition: color .2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .btn-gold-nav { background: var(--gold); color: #fff; border: none; padding: 9px 18px; font-family: 'Raleway', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: background .2s; }
+  .btn-gold-nav:hover { background: var(--gold-bright); }
+
+  .aurora-wrap { position: relative; display: inline-block; }
+  .aurora-glow { position: absolute; inset: -3px; border-radius: 10px; filter: blur(10px); transition: opacity .3s, filter .3s; pointer-events: none; background-size: 200% 100%; animation: ashift 3s linear infinite; }
+  .aurora-gold { background: linear-gradient(90deg, #B8860B, #E8C44A, #FAF0C0, #D4A017, #B8860B); opacity: .85; }
+  .aurora-white { background: linear-gradient(90deg, #a78bfa, #67e8f9, #6ee7b7, #a78bfa); opacity: .75; }
+  @keyframes ashift { 0%{background-position:0% 50%} 100%{background-position:200% 50%} }
+  .aurora-wrap:hover .aurora-glow { opacity: 1; filter: blur(16px); }
+  .aurora-btn { position: relative; z-index: 1; background: rgba(15,10,20,0.88); border: 1px solid rgba(255,255,255,0.15); border-radius: 8px; padding: 13px 26px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: background .2s; white-space: nowrap; color: #E8C44A; }
+  .aurora-btn-w { color: #d4c5a0; }
+  .aurora-btn:hover { background: rgba(15,10,20,0.65); }
+  .btn-gold { background: var(--gold); color: #fff; border: none; padding: 13px 26px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 4px; transition: background .2s; text-decoration: none; display: inline-block; }
+  .btn-gold:hover { background: var(--gold-bright); }
+  .btn-outline { background: transparent; color: var(--gold); border: 2px solid var(--gold-border); padding: 11px 22px; font-family: 'Raleway', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; border-radius: 4px; text-decoration: none; display: inline-block; }
+
+  .hero { background: linear-gradient(160deg, #2d1f35 0%, #1a1420 100%); padding: 130px 2rem 90px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 80% 55% at 50% 30%, rgba(232,196,74,0.16) 0%, transparent 70%); pointer-events:none; }
+  .hero-content { position: relative; z-index: 2; }
+  .hero-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold-shine); font-weight: 600; background: rgba(232,196,74,0.12); padding: 7px 20px; border: 1px solid rgba(232,196,74,0.35); border-radius: 40px; display: inline-block; margin-bottom: 1.5rem; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 5.5vw, 64px); font-weight: 600; color: #fff; max-width: 700px; margin: 0 auto 1rem; line-height: 1.12; }
+  .hero h1 em { color: var(--gold-shine); font-style: italic; }
+  .hero-sub { color: rgba(255,255,255,0.72); font-size: 15px; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.9; }
+  .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+  .section { padding: 70px 2rem; }
+  .container { max-width: 920px; margin: 0 auto; }
+  .s-label { font-size: 10px; letter-spacing: 5px; text-transform: uppercase; color: var(--gold); font-weight: 600; text-align: center; margin-bottom: .4rem; }
+  .s-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 42px); font-weight: 600; text-align: center; color: var(--text-dark); line-height: 1.15; margin-bottom: .75rem; }
+  .s-title em { color: var(--gold); font-style: italic; }
+  .s-sub { text-align: center; color: var(--text-mid); max-width: 520px; margin: 0 auto 2.5rem; font-size: 14px; }
+
+  .about { background: var(--ivory); border-top: 3px solid var(--gold-border); border-bottom: 3px solid var(--gold-border); }
+  .about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 3.5rem; align-items: center; }
+  .about-img-box { aspect-ratio: 3/4; border: 3px solid var(--gold-border); border-radius: 4px; overflow: hidden; position: relative; background: linear-gradient(160deg, var(--gold-pale), var(--ivory)); display: flex; align-items: center; justify-content: center; }
+  .about-img-box img { width:100%; height:100%; object-fit:cover; object-position:top; display:block; }
+  .about-img-label { position:absolute; bottom:0; left:0; right:0; background:var(--gold); color:#fff; text-align:center; font-size:10px; font-weight:600; letter-spacing:3px; text-transform:uppercase; padding:8px; }
+  .about-text h2 { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600; color:var(--text-dark); line-height:1.2; margin-bottom:.3rem; }
+  .about-text h2 em { color:var(--gold); font-style:italic; }
+  .about-role { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:1.25rem; }
+  .about-text p { color:var(--text-mid); font-size:14px; margin-bottom:.75rem; line-height:1.8; }
+  .about-sig { font-family:'Cormorant Garamond',serif; font-size:28px; font-style:italic; color:var(--gold); margin-top:1.25rem; }
+
+  .angel-banner { background:linear-gradient(135deg,#2d1f35,#1a1420); padding:50px 2rem; text-align:center; border-top:2px solid var(--gold-border); border-bottom:2px solid var(--gold-border); }
+  .angel-banner p { font-family:'Cormorant Garamond',serif; font-size:24px; font-style:italic; color:rgba(255,255,255,0.9); max-width:580px; margin:.5rem auto 0; line-height:1.6; }
+  .angel-banner p em { color:var(--gold-shine); font-style:normal; }
+
+  .services { background: var(--cream); }
+  .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:1.25rem; }
+  .scard { background:var(--white); border:2px solid var(--gold-border); border-radius:4px; padding:2rem; position:relative; overflow:hidden; transition:transform .2s, background .2s; cursor:default; }
+  .scard::after { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,var(--gold),var(--gold-shine),var(--gold)); }
+  .scard:hover { transform:translateY(-3px); background:var(--gold-pale); }
+  .scard-icon { font-size:22px; color:var(--gold); margin-bottom:.75rem; display:block; }
+  .scard h3 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--text-dark); margin-bottom:.5rem; }
+  .scard p { font-size:13px; color:var(--text-mid); line-height:1.8; }
+
+  .testi-section { background:var(--ivory); border-top:3px solid var(--gold-border); border-bottom:3px solid var(--gold-border); padding:70px 2rem; }
+  .carousel-wrap { max-width:820px; margin:0 auto; position:relative; }
+  .carousel-outer { overflow:hidden; border-radius:4px; }
+  .carousel-track { display:flex; transition:transform 0.5s cubic-bezier(.77,0,.18,1); }
+  .slide { min-width:100%; display:grid; grid-template-columns:1fr 1fr; background:var(--white); border:2px solid var(--gold-border); border-radius:4px; overflow:hidden; }
+  .slide-img { overflow:hidden; position:relative; background:linear-gradient(160deg,var(--gold-pale),var(--ivory)); min-height: 300px; }
+  .slide-img img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+  .slide-content { padding:2.5rem 2rem; display:flex; flex-direction:column; justify-content:center; position:relative; }
+  .slide-content::before { content:'\201C'; font-family:'Cormorant Garamond',serif; font-size:90px; color:var(--gold-light); position:absolute; top:-8px; left:14px; line-height:1; pointer-events:none; }
+  .slide-tag { font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:.4rem; }
+  .slide-name { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:var(--text-dark); margin-bottom:.75rem; }
+  .slide-text { font-family:'Cormorant Garamond',serif; font-size:16px; font-style:italic; color:var(--text-mid); line-height:1.75; margin-bottom:1.25rem; }
+  .stars { display:flex; gap:5px; }
+  .star { width:20px; height:20px; background:var(--gold-shine); clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); opacity:0; transform:scale(0.4); transition:opacity .3s,transform .3s; }
+  .star.lit { opacity:1; transform:scale(1); }
+  .cbtn { position:absolute; top:50%; transform:translateY(-50%); width:42px; height:42px; border-radius:50%; background:var(--gold); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; color:#fff; font-size:20px; font-weight:700; transition:background .2s; z-index:10; box-shadow:0 2px 12px rgba(184,134,11,0.35); }
+  .cbtn:hover { background:var(--gold-bright); }
+  .cbtn.prev { left:-22px; } .cbtn.next { right:-22px; }
+  .dots { display:flex; gap:10px; justify-content:center; margin-top:1.75rem; }
+  .dot { width:10px; height:10px; border-radius:50%; background:var(--gold); opacity:.3; cursor:pointer; transition:opacity .3s,transform .3s; border:none; }
+  .dot.active { opacity:1; transform:scale(1.3); }
+
+  .lead { background:linear-gradient(135deg,#2d1f35,#1a1420); padding:70px 2rem; text-align:center; border-top:3px solid var(--gold-border); border-bottom:3px solid var(--gold-border); }
+  .lead h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(22px,3.5vw,36px); font-weight:600; color:#fff; margin-bottom:.75rem; line-height:1.2; }
+  .lead h2 em { color:var(--gold-shine); font-style:italic; }
+  .lead p { color:rgba(255,255,255,0.68); font-size:14px; max-width:480px; margin:0 auto 1.75rem; line-height:1.8; }
+  .lead-form { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+  .lead-form input { padding:13px 18px; font-size:14px; border:2px solid var(--gold-border); background:rgba(255,255,255,0.08); color:#fff; border-radius:4px; width:260px; outline:none; font-family:'Raleway',sans-serif; }
+  .lead-form input::placeholder { color:rgba(255,255,255,0.38); }
+  .lead-note { font-size:11px; color:rgba(255,255,255,0.3); margin-top:.75rem; }
+
+  .steps { background:var(--ivory); border-top:3px solid var(--gold-border); border-bottom:3px solid var(--gold-border); }
+  .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; position:relative; }
+  .steps-grid::before { content:''; position:absolute; top:28px; left:16.67%; right:16.67%; height:2px; background:linear-gradient(90deg,var(--gold-border),var(--gold-shine),var(--gold-border)); }
+  .step { text-align:center; padding:1.5rem; }
+  .step-num { width:56px; height:56px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; margin:0 auto 1.25rem; font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:#fff; position:relative; z-index:1; box-shadow:0 0 0 4px var(--gold-pale); }
+  .step h3 { font-family:'Cormorant Garamond',serif; font-size:18px; font-weight:600; color:var(--text-dark); margin-bottom:.4rem; }
+  .step p { font-size:13px; color:var(--text-mid); }
+
+  .booking { background:linear-gradient(160deg,var(--gold-pale) 0%,var(--cream) 60%); border-top:3px solid var(--gold-border); padding:70px 2rem; text-align:center; }
+  .booking-box { max-width:580px; margin:0 auto; background:var(--white); border:2px solid var(--gold-border); border-radius:4px; padding:2.5rem 2rem; }
+  .booking-ph { background:var(--gold-pale); border:2px dashed var(--gold-border); border-radius:4px; padding:1.5rem; margin:1.5rem 0; color:var(--text-soft); font-size:12px; font-weight:600; text-align:center; }
+  .booking-btns { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:1.25rem; }
+
+  .values { background:var(--cream); }
+  .values-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.25rem; margin-top:2.5rem; }
+  .vitem { padding:1.25rem 1.5rem; border-left:4px solid var(--gold); background:var(--white); border-radius:0 4px 4px 0; }
+  .vitem h4 { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--text-dark); margin-bottom:.3rem; }
+  .vitem p { font-size:13px; color:var(--text-mid); }
+
+  .faq { background:var(--ivory); border-top:3px solid var(--gold-border); }
+  .faq-list { max-width:700px; margin:0 auto; }
+  .faq-item { border:2px solid var(--gold-border); border-radius:4px; margin-bottom:10px; overflow:hidden; background:var(--white); }
+  .faq-q { display:flex; justify-content:space-between; align-items:center; padding:1rem 1.25rem; font-size:14px; font-weight:600; color:var(--text-dark); cursor:pointer; }
+  .faq-q:hover { background:var(--gold-pale); }
+  .faq-icon { color:var(--gold); font-size:20px; transition:transform .3s; flex-shrink:0; margin-left:1rem; }
+  .faq-a { font-size:13px; color:var(--text-mid); max-height:0; overflow:hidden; transition:max-height .4s,padding .3s; padding:0 1.25rem; line-height:1.8; }
+  .faq-item.open .faq-a { max-height:180px; padding:0 1.25rem 1rem; }
+  .faq-item.open .faq-icon { transform:rotate(45deg); }
+
+  footer { background:#1E1610; color:rgba(255,255,255,0.5); padding:3rem 2rem; text-align:center; border-top:4px solid var(--gold); }
+  .footer-logo { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:rgba(255,255,255,0.9); margin-bottom:.3rem; }
+  .footer-logo span { color:var(--gold-shine); font-style:italic; }
+  .footer-tag { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:1.5rem; }
+  .footer-links { display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; margin-bottom:1.5rem; }
+  .footer-links a { font-size:12px; font-weight:600; color:rgba(255,255,255,0.45); text-decoration:none; transition:color .2s; }
+  .footer-links a:hover { color:var(--gold-shine); }
+  .footer-legal { font-size:11px; color:rgba(255,255,255,0.25); max-width:500px; margin:0 auto; line-height:1.8; }
+
+  @media(max-width:700px){
+    .nav-links { display:none; }
+    .about-grid { grid-template-columns:1fr; }
+    .slide { grid-template-columns:1fr; }
+    .slide-img { min-height:260px; }
+    .steps-grid { grid-template-columns:1fr; }
+    .steps-grid::before { display:none; }
+    .cbtn.prev { left:-14px; }
+    .cbtn.next { right:-14px; }
+    .hero-btns { flex-direction:column; align-items:center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="#" class="nav-logo">Séraphine <span>Voyance</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#services">Consultations</a></li>
+    <li><a href="#testi">Témoignages</a></li>
+    <li><a href="#booking">Réserver</a></li>
+  </ul>
+  <button class="btn-gold-nav" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Réserver</button>
+</nav>
+
+<!-- ===== HERO ===== -->
+<div class="hero">
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ &nbsp; Guidance intuitive &nbsp;·&nbsp; Voyance &nbsp;·&nbsp; Soins énergétiques &nbsp; ✦</span>
+    <h1>Recevez les messages<br>qui <em>éclairent</em> votre chemin</h1>
+    <p class="hero-sub">Séraphine canalise les messages, les ressentis et les énergies pour vous aider à comprendre une situation et avancer avec clarté.</p>
+    <div class="hero-btns">
+      <div class="aurora-wrap">
+        <div class="aurora-glow aurora-gold"></div>
+        <!-- LIEN RÉSERVATION : remplacez # par votre lien Calendly -->
+        <button class="aurora-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Réserver une consultation</button>
+      </div>
+      <div class="aurora-wrap">
+        <div class="aurora-glow aurora-white"></div>
+        <button class="aurora-btn aurora-btn-w" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Découvrir les prestations</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== À PROPOS ===== -->
+<div class="about section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-box">
+        <!-- PHOTO SÉRAPHINE : remplacez src par le nom de votre image ex: src="seraphine-photo.jpg" -->
+        <img src="seraphine-photo.jpg" alt="Séraphine, guide intuitive">
+        <span class="about-img-label">Séraphine · Guide intuitive</span>
+      </div>
+      <div class="about-text">
+        <div class="s-label">À propos</div>
+        <h2>Voyante, <em>guide intuitive</em><br>et énergéticienne</h2>
+        <div class="about-role">✦ &nbsp; Guidance · Canalisation · Soins lumineux &nbsp; ✦</div>
+        <p>J'accompagne les personnes qui traversent une période de doute, de transition ou de questionnement — qu'il soit amoureux, personnel ou spirituel.</p>
+        <p>Mon approche est à la fois intuitive, douce et profondément humaine. Je ne vous dirai pas ce que vous voulez entendre — je vous transmettrai ce dont vous avez besoin.</p>
+        <p>Depuis de nombreuses années, j'accompagne des personnes de tous horizons dans des moments importants de leur vie.</p>
+        <div class="about-sig">— Séraphine</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== BANNIÈRE ANGÉLIQUE ===== -->
+<div class="angel-banner">
+  <div class="s-label" style="color:var(--gold-shine);">✦ &nbsp; Message angélique &nbsp; ✦</div>
+  <p>"Je canalise l'énergie pour <em>éclairer votre chemin</em> et vous guider vers l'essentiel."</p>
+</div>
+
+<!-- ===== PRESTATIONS ===== -->
+<div class="services section" id="services">
+  <div class="container">
+    <div class="s-label">✦ Prestations ✦</div>
+    <h2 class="s-title">Choisissez votre <em>guidance</em></h2>
+    <p class="s-sub">Chaque consultation est adaptée à vos besoins du moment.</p>
+    <div class="services-grid">
+      <div class="scard"><span class="scard-icon">✉</span><h3>Consultation par mail</h3><p>Réponse détaillée et structurée pour une question précise — sentimentale, professionnelle ou personnelle.</p></div>
+      <div class="scard"><span class="scard-icon">✦</span><h3>Consultation par chat</h3><p>Échange écrit en direct, rapide et fluide, pour un éclairage immédiat.</p></div>
+      <div class="scard"><span class="scard-icon">◎</span><h3>Audio WhatsApp</h3><p>Message vocal de 5 à 10 minutes selon votre question posée.</p></div>
+      <div class="scard"><span class="scard-icon">❋</span><h3>Guidance intuitive complète</h3><p>Lecture approfondie : blocages, ressentis, évolution, conseils énergétiques.</p></div>
+      <div class="scard"><span class="scard-icon">◇</span><h3>Soin énergétique angélique</h3><p>Apaisement, recentrage, libération douce des charges émotionnelles.</p></div>
+      <div class="scard"><span class="scard-icon">☽</span><h3>Message canalisé</h3><p>Message reçu autour d'un lien, d'un passage de vie ou d'une énergie du moment.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TÉMOIGNAGES ===== -->
+<div class="testi-section" id="testi">
+  <div class="s-label">✦ Témoignages ✦</div>
+  <h2 class="s-title" style="margin-bottom:2rem;">Ce qu'ils & elles <em>ressentent</em></h2>
+  <div class="carousel-wrap">
+    <div class="carousel-outer">
+      <div class="carousel-track" id="track">
+
+        <div class="slide">
+          <!-- PHOTO CAMILLE : remplacez src par ex: src="camille.jpg" -->
+          <div class="slide-img"><img src="camille-r.jpg" alt="Camille R."></div>
+          <div class="slide-content">
+            <div class="slide-tag">Questionnement sentimental</div>
+            <div class="slide-name">Camille R.</div>
+            <!-- TEXTE TÉMOIGNAGE : modifiez librement -->
+            <p class="slide-text">"Consultation très rassurante et précise. J'ai eu des réponses claires et des conseils concrets pour prendre ma décision sans stress."</p>
+            <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <!-- PHOTO JULIEN : remplacez src par ex: src="julien.jpg" -->
+          <div class="slide-img"><img src="julien-p.jpg" alt="Julien P."></div>
+          <div class="slide-content">
+            <div class="slide-tag">Recherche d'apaisement</div>
+            <div class="slide-name">Julien P.</div>
+            <p class="slide-text">"Une approche bienveillante, sans jugement, et une grande confidentialité. La guidance énergétique à distance m'a beaucoup apaisé."</p>
+            <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          </div>
+        </div>
+
+        <div class="slide">
+          <!-- PHOTO NATHALIE : remplacez src par ex: src="nathalie.jpg" -->
+          <div class="slide-img"><img src="nathalie-p.jpg" alt="Nathalie P."></div>
+          <div class="slide-content">
+            <div class="slide-tag">Soin énergétique angélique</div>
+            <div class="slide-name">Nathalie P.</div>
+            <p class="slide-text">"Le soin énergétique m'a permis de retrouver un vrai apaisement après une période très difficile. Séraphine a une énergie particulière, très douce."</p>
+            <div class="stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <button class="cbtn prev" id="prev">&#8249;</button>
+    <button class="cbtn next" id="next">&#8250;</button>
+    <div class="dots" id="dots">
+      <button class="dot active" data-i="0"></button>
+      <button class="dot" data-i="1"></button>
+      <button class="dot" data-i="2"></button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEAD MAGNET ===== -->
+<div class="lead">
+  <div class="s-label" style="color:var(--gold-shine);">✦ Cadeau offert ✦</div>
+  <h2 style="margin-top:.4rem;">Recevez votre <em>guide angélique</em> gratuit</h2>
+  <p>Téléchargez <strong style="color:var(--gold-shine);">"5 signes que les anges vous guident en ce moment"</strong> — et recevez chaque semaine un message de guidance dans votre boîte mail.</p>
+  <div class="lead-form">
+    <input type="email" placeholder="Votre adresse email...">
+    <!-- CONNECTEZ CE BOUTON à Mailchimp, Brevo ou MailerLite -->
+    <div class="aurora-wrap">
+      <div class="aurora-glow aurora-gold"></div>
+      <button class="aurora-btn" style="padding:13px 20px;">Je reçois mon guide ✦</button>
+    </div>
+  </div>
+  <p class="lead-note">Données confidentielles · Désinscription à tout moment</p>
+</div>
+
+<!-- ===== ÉTAPES ===== -->
+<div class="steps section">
+  <div class="container">
+    <div class="s-label">✦ Déroulement ✦</div>
+    <h2 class="s-title">Comment se déroule une <em>consultation</em> ?</h2>
+    <p class="s-sub">Un processus simple, clair et bienveillant.</p>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">I</div><h3>Choisissez votre prestation</h3><p>Sélectionnez la formule qui correspond à votre besoin et à votre rythme.</p></div>
+      <div class="step"><div class="step-num">II</div><h3>Envoyez votre question</h3><p>Posez votre question avec les informations nécessaires. Aucun détail n'est trop petit.</p></div>
+      <div class="step"><div class="step-num">III</div><h3>Recevez votre guidance</h3><p>Par mail, chat, audio WhatsApp ou lors d'un rendez-vous.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;">
+      <div class="aurora-wrap" style="display:inline-block;">
+        <div class="aurora-glow aurora-gold"></div>
+        <button class="aurora-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Je réserve ma consultation</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RÉSERVATION ===== -->
+<div class="booking" id="booking">
+  <div class="s-label">✦ Réservation ✦</div>
+  <h2 class="s-title">Votre moment avec <em>Séraphine</em></h2>
+  <p class="s-sub">Choisissez la façon dont vous souhaitez être accompagné(e).</p>
+  <div class="booking-box">
+    <!-- INTÉGREZ ICI votre Calendly, TidyCal ou SimplyBook -->
+    <div class="booking-ph">✦ &nbsp; Zone d'intégration Calendly / TidyCal / SimplyBook &nbsp; ✦<br><small style="font-weight:400;font-size:11px;">Collez ici le code d'intégration de votre outil de réservation</small></div>
+    <div class="booking-btns">
+      <!-- Remplacez # par vos vrais liens -->
+      <div class="aurora-wrap">
+        <div class="aurora-glow aurora-gold"></div>
+        <a href="#" class="aurora-btn">Réserver maintenant</a>
+      </div>
+      <a href="mailto:votre@email.fr" class="btn-outline">Envoyer ma question</a>
+      <a href="https://wa.me/33XXXXXXXXX" class="btn-outline">WhatsApp</a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== VALEURS ===== -->
+<div class="values section">
+  <div class="container">
+    <div class="s-label">✦ Mes engagements ✦</div>
+    <h2 class="s-title">Une approche <em>humaine</em> et bienveillante</h2>
+    <div class="values-grid">
+      <div class="vitem"><h4>Écoute bienveillante</h4><p>Chaque consultation commence par une écoute sincère, sans jugement et sans pression.</p></div>
+      <div class="vitem"><h4>Clarté des messages</h4><p>Je transmets ce que je reçois avec précision et honnêteté.</p></div>
+      <div class="vitem"><h4>Respect du libre arbitre</h4><p>La guidance est un éclairage, jamais une injonction.</p></div>
+      <div class="vitem"><h4>Approche énergétique</h4><p>Je travaille avec les énergies angéliques pour une lecture profonde.</p></div>
+      <div class="vitem"><h4>Sans jugement</h4><p>Toutes les situations sont accueillies avec la même douceur.</p></div>
+      <div class="vitem"><h4>Guidance concrète</h4><p>Des réponses utiles, ancrées dans votre réalité.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FAQ ===== -->
+<div class="faq section">
+  <div class="container">
+    <div class="s-label">✦ Questions fréquentes ✦</div>
+    <h2 class="s-title">Vous avez des <em>questions</em> ?</h2>
+    <div class="faq-list">
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment choisir ma consultation ? <span class="faq-icon">+</span></div><div class="faq-a">Si vous souhaitez une réponse écrite détaillée, choisissez la consultation par mail. Pour un échange plus direct, préférez le chat ou l'audio WhatsApp. La guidance complète est idéale pour les situations complexes.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Puis-je poser une question sentimentale ? <span class="faq-icon">+</span></div><div class="faq-a">Oui, absolument. Les questions sentimentales sont parmi les plus fréquentes. Séraphine les accueille sans jugement et avec toute l'attention qu'elles méritent.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Combien de temps pour recevoir une réponse par mail ? <span class="faq-icon">+</span></div><div class="faq-a">En général sous 24 à 72 heures selon la charge et la profondeur de la question. Un délai indicatif vous sera précisé lors de votre commande.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment fonctionne l'audio WhatsApp ? <span class="faq-icon">+</span></div><div class="faq-a">Vous envoyez votre question via WhatsApp. Séraphine vous répond avec un message vocal d'environ 5 à 10 minutes selon la complexité de la situation.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Les soins énergétiques se font-ils à distance ? <span class="faq-icon">+</span></div><div class="faq-a">Oui, le soin énergétique angélique peut être pratiqué entièrement à distance avec la même efficacité.</div></div>
+      <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Comment réserver un créneau ? <span class="faq-icon">+</span></div><div class="faq-a">Rendez-vous dans la section Réservation ci-dessus. Choisissez votre créneau ou envoyez votre demande par mail. Séraphine vous confirme rapidement.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-logo">Séraphine <span>Voyance</span></div>
+  <div class="footer-tag">✦ &nbsp; Guidance · Voyance · Soins énergétiques · Messages canalisés &nbsp; ✦</div>
+  <div class="footer-links">
+    <a href="#">Mentions légales</a>
+    <!-- EMAIL : remplacez par votre adresse -->
+    <a href="mailto:votre@email.fr">Contact</a>
+    <a href="#booking">Réserver</a>
+  </div>
+  <p class="footer-legal">Les consultations proposées par Séraphine Voyance sont des prestations de guidance intuitive et d'accompagnement spirituel. Elles ne remplacent en aucun cas un avis médical, juridique, financier ou psychologique. © 2025 Séraphine Voyance · Tous droits réservés</p>
+</footer>
+
+<script>
+  // CARROUSEL
+  const track = document.getElementById('track');
+  const dots = document.querySelectorAll('.dot');
+  const slides = document.querySelectorAll('.slide');
+  let cur = 0, busy = false;
+
+  function goTo(n) {
+    if (busy) return; busy = true;
+    cur = (n + slides.length) % slides.length;
+    track.style.transform = `translateX(-${cur * 100}%)`;
+    dots.forEach((d,i) => d.classList.toggle('active', i === cur));
+    animStars(cur);
+    setTimeout(() => busy = false, 520);
+  }
+
+  function animStars(idx) {
+    const grp = document.querySelectorAll('.stars')[idx];
+    grp.querySelectorAll('.star').forEach(s => s.classList.remove('lit'));
+    grp.querySelectorAll('.star').forEach((s,i) => setTimeout(() => s.classList.add('lit'), 100 + i*110));
+  }
+
+  document.getElementById('prev').onclick = () => goTo(cur - 1);
+  document.getElementById('next').onclick = () => goTo(cur + 1);
+  dots.forEach(d => d.onclick = () => goTo(+d.dataset.i));
+  setTimeout(() => animStars(0), 500);
+  setInterval(() => goTo(cur + 1), 6000);
+
+  // FAQ
+  function toggleFaq(el) {
+    const open = el.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!open) el.classList.add('open');
+  }
+</script>
+</body>
+</html>
